@@ -1,0 +1,1205 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TABLA DE REFERENCIA RÁPIDA: CATÁLOGO 2026 - CONTACTO VITAL</title>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary: #0b1329;
+            --accent: #0066ff;
+            --bg-color: #f4f6f9;
+            --text-main: #2d3748;
+            --text-muted: #718096;
+            --border-color: #cbd5e1;
+        }
+
+        body {
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            background: var(--bg-color);
+            margin: 0;
+            padding: 30px;
+            color: var(--text-main);
+        }
+
+        .wiki-container {
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+
+        .wiki-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background: #ffffff;
+            padding: 25px 35px;
+            border-radius: 12px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+            border: 1px solid var(--border-color);
+            margin-bottom: 30px;
+        }
+
+        .logo-area {
+            display: flex;
+            align-items: center;
+            gap: 20px;
+        }
+
+        .logo-area img {
+            height: 95px; 
+            width: auto;
+            object-fit: contain;
+        }
+
+        .logo-area h1 {
+            color: var(--primary);
+            font-size: 2.2rem;
+            margin: 0;
+            font-weight: 700;
+        }
+
+        .tag-wiki {
+            font-size: 0.75rem;
+            background: #eef2f7;
+            color: var(--primary);
+            padding: 6px 14px;
+            border-radius: 20px;
+            font-weight: 600;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+        }
+
+        /* Estilos de Secciones */
+        .wiki-section {
+            margin-bottom: 45px;
+        }
+
+        .section-title {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: var(--primary);
+            background: #e2e8f0;
+            padding: 12px 20px;
+            border-radius: 8px;
+            margin-bottom: 20px;
+            border-left: 5px solid var(--accent);
+        }
+
+        /* Cuadrícula de Fichas tipo Wiki */
+        .productos-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+            gap: 25px;
+        }
+
+        .producto-card {
+            background: #ffffff;
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+            border: 1px solid var(--border-color);
+            display: flex;
+            flex-direction: column;
+            transition: transform 0.2s ease, box-shadow 0.2s ease;
+        }
+
+        .producto-card:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+        }
+
+        .producto-img-container {
+            width: 100%;
+            height: 180px;
+            background: #f8fafc;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            border-bottom: 2px solid var(--border-color);
+            overflow: hidden;
+        }
+
+        .producto-img-container img {
+            max-height: 100%;
+            max-width: 100%;
+            object-fit: contain;
+            padding: 15px;
+        }
+
+        .producto-info {
+            padding: 20px;
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+            flex-grow: 1;
+        }
+
+        .producto-titulo {
+            font-size: 1.3rem;
+            font-weight: 700;
+            color: var(--primary);
+            margin: 0;
+            border-bottom: 2px solid #f1f5f9;
+            padding-bottom: 8px;
+        }
+
+        .wiki-specs {
+            background: #f8fafc;
+            border: 1px solid #e2e8f0;
+            border-radius: 8px;
+            padding: 12px;
+            display: flex;
+            flex-direction: column;
+            gap: 8px;
+        }
+
+        .spec-row {
+            display: flex;
+            flex-direction: column;
+            font-size: 0.98rem;
+        }
+
+        .spec-label {
+            font-weight: 700;
+            color: var(--primary);
+            text-transform: uppercase;
+            font-size: 0.78rem;
+            letter-spacing: 0.5px;
+            margin-bottom: 2px;
+        }
+
+        .spec-value {
+            color: var(--text-muted);
+            line-height: 1.4;
+        }
+
+        /* Mejoras de legibilidad y búsqueda rápida */
+        .catalog-toolbar {
+            display: flex;
+            align-items: center;
+            gap: 16px;
+            background: #ffffff;
+            padding: 18px 22px;
+            border-radius: 12px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+            border: 1px solid var(--border-color);
+            margin-bottom: 30px;
+        }
+
+        .search-label {
+            color: var(--primary);
+            font-size: 1.05rem;
+            font-weight: 700;
+            white-space: nowrap;
+        }
+
+        #product-search {
+            flex: 1;
+            min-width: 0;
+            border: 2px solid var(--border-color);
+            border-radius: 8px;
+            padding: 13px 16px;
+            font: inherit;
+            font-size: 1.05rem;
+            color: var(--text-main);
+            outline: none;
+            transition: border-color 0.2s ease, box-shadow 0.2s ease;
+        }
+
+        #product-search:focus {
+            border-color: var(--accent);
+            box-shadow: 0 0 0 3px rgba(0,102,255,0.12);
+        }
+
+        .search-count {
+            color: var(--text-muted);
+            font-size: 0.95rem;
+            font-weight: 600;
+            white-space: nowrap;
+        }
+
+        .no-results {
+            display: none;
+            background: #ffffff;
+            border: 1px solid var(--border-color);
+            border-radius: 10px;
+            padding: 24px;
+            color: var(--text-muted);
+            font-size: 1.05rem;
+            text-align: center;
+            grid-column: 1 / -1;
+        }
+
+        @media (max-width: 700px) {
+            .catalog-toolbar { align-items: stretch; flex-direction: column; }
+            .search-label, .search-count { white-space: normal; }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="wiki-container">
+        <!-- ENCABEZADO -->
+        <header class="wiki-header">
+            <div class="logo-area">
+                <img src="img/logo.png" alt="Contacto Vital Logo">
+                <h1>TABLA DE REFERENCIA RÁPIDA: CATÁLOGO 2026 - CONTACTO VITAL</h1>
+            </div>
+            <span class="tag-wiki">Desarrollado y administrado por IT.</span>
+        </header>
+
+        <div class="catalog-toolbar" role="search">
+            <label class="search-label" for="product-search">Buscar producto:</label>
+            <input id="product-search" type="search" placeholder="Escribe el nombre o una característica..." autocomplete="off">
+            <span class="search-count" id="search-count" aria-live="polite"></span>
+        </div>
+
+
+        <!-- ========================================== -->
+        <!-- SECCIÓN 1: SUPLEMENTOS ORALES -->
+        <!-- ========================================== -->
+        <section class="wiki-section">
+            <h2 class="section-title">Sección 1: Suplementos de Administración Oral</h2>
+            <div class="productos-grid">
+
+                <!-- MACA CAPS -->
+                <div class="producto-card">
+                    <div class="producto-img-container"><img src="img/maca.png" alt="MACA CAPS"></div>
+                    <div class="producto-info">
+                        <h3 class="producto-titulo">MACA CAPS</h3>
+                        <div class="wiki-specs">
+                            <div class="spec-row"><span class="spec-label">Momento de la toma</span><span class="spec-value">En la mañana o al medio día, no de noche.</span></div>
+                            <div class="spec-row"><span class="spec-label">Beneficios clave</span><span class="spec-value">Aumento de energía y resistencia física/mental; equilibrio hormonal; mejora de libido y salud sexual; apoyo a salud ósea.</span></div>
+                            <div class="spec-row"><span class="spec-label">Consumo</span><span class="spec-value">1 cápsula.</span></div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- TIGER / VIGRA VEGETAL -->
+                <div class="producto-card">
+                    <div class="producto-img-container"><img src="img/tigervegetal.png" alt="TIGER VEGETAL"></div>
+                    <div class="producto-info">
+                        <h3 class="producto-titulo">TIGER / VIGRA VEGETAL</h3>
+                        <div class="wiki-specs">
+                            <div class="spec-row"><span class="spec-label">Momento de la toma</span><span class="spec-value">Tomar 30-60 min antes del encuentro sexual.</span></div>
+                            <div class="spec-row"><span class="spec-label">Beneficios clave</span><span class="spec-value">Optimización de la función eréctil; asistencia técnica para lograr y mantener erecciones firmes con eficacia clínica.</span></div>
+                            <div class="spec-row"><span class="spec-label">Consumo</span><span class="spec-value">1 cápsula (duración de 4-5 horas).</span></div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- DIA B-T CAPS -->
+                <div class="producto-card">
+                    <div class="producto-img-container"><img src="img/diab-t.png" alt="DIA B-T CAPS"></div>
+                    <div class="producto-info">
+                        <h3 class="producto-titulo">DIA B-T CAPS</h3>
+                        <div class="wiki-specs">
+                            <div class="spec-row"><span class="spec-label">Momento de la toma</span><span class="spec-value">Con alimentos en el almuerzo o cena.</span></div>
+                            <div class="spec-row"><span class="spec-label">Beneficios clave</span><span class="spec-value">Soporte al metabolismo de la glucosa; mantenimiento de niveles normales de azúcar en sangre; equilibrio energético metabólico.</span></div>
+                            <div class="spec-row"><span class="spec-label">Consumo</span><span class="spec-value">1 cápsula.</span></div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- HGH CV -->
+                <div class="producto-card">
+                    <div class="producto-img-container"><img src="img/hghcv.png" alt="HGH CV"></div>
+                    <div class="producto-info">
+                        <h3 class="producto-titulo">HGH CV</h3>
+                        <div class="wiki-specs">
+                            <div class="spec-row"><span class="spec-label">Momento de la toma</span><span class="spec-value">Preferiblemente con las comidas.</span></div>
+                            <div class="spec-row"><span class="spec-label">Beneficios clave</span><span class="spec-value">Incremento de masa muscular y reducción de tejido adiposo; regeneración celular y mejora de la vitalidad general.</span></div>
+                            <div class="spec-row"><span class="spec-label">Consumo</span><span class="spec-value">2 cápsulas al día.</span></div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- SLIM BURNER -->
+                <div class="producto-card">
+                    <div class="producto-img-container"><img src="img/slimburner.png" alt="SLIM BURNER"></div>
+                    <div class="producto-info">
+                        <h3 class="producto-titulo">SLIM BURNER</h3>
+                        <div class="wiki-specs">
+                            <div class="spec-row"><span class="spec-label">Momento de la toma</span><span class="spec-value">Tomar con un vaso de agua antes de las comidas principales para una mejor asimilación.</span></div>
+                            <div class="spec-row"><span class="spec-label">Beneficios clave</span><span class="spec-value">Control de glucemia y soporte de insulina; procesamiento eficiente de grasas y optimización de la salud hepática.</span></div>
+                            <div class="spec-row"><span class="spec-label">Consumo</span><span class="spec-value">3 cápsulas.</span></div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- PROSTA VITAL -->
+                <div class="producto-card">
+                    <div class="producto-img-container"><img src="img/prostavital.png" alt="PROSTA VITAL"></div>
+                    <div class="producto-info">
+                        <h3 class="producto-titulo">PROSTA VITAL</h3>
+                        <div class="wiki-specs">
+                            <div class="spec-row"><span class="spec-label">Momento de la toma</span><span class="spec-value">Tomar después de una comida principal (almuerzo o cena) junto con un vaso de agua.</span></div>
+                            <div class="spec-row"><span class="spec-label">Beneficios clave</span><span class="spec-value">Soporte integral de la salud prostática; favorece un flujo urinario normal y reduce la frecuencia de micción.</span></div>
+                            <div class="spec-row"><span class="spec-label">Consumo</span><span class="spec-value">1 cápsula al día.</span></div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- TESTO VITAL -->
+                <div class="producto-card">
+                    <div class="producto-img-container"><img src="img/testovital.png" alt="TESTO VITAL"></div>
+                    <div class="producto-info">
+                        <h3 class="producto-titulo">TESTO VITAL</h3>
+                        <div class="wiki-specs">
+                            <div class="spec-row"><span class="spec-label">Momento de la toma</span><span class="spec-value">Tomar preferiblemente junto con los alimentos para facilitar la digestión.</span></div>
+                            <div class="spec-row"><span class="spec-label">Beneficios clave</span><span class="spec-value">Aumento de libido y deseo sexual; mejora la circulación, la energía y el rendimiento sexual físico.</span></div>
+                            <div class="spec-row"><span class="spec-label">Consumo</span><span class="spec-value">1 cápsula.</span></div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- VIGOR VITAL -->
+                <div class="producto-card">
+                    <div class="producto-img-container"><img src="img/vigorvital.png" alt="VIGOR VITAL"></div>
+                    <div class="producto-info">
+                        <h3 class="producto-titulo">VIGOR VITAL</h3>
+                        <div class="wiki-specs">
+                            <div class="spec-row"><span class="spec-label">Momento de la toma</span><span class="spec-value">Ingerir junto con los alimentos para facilitar la digestión.</span></div>
+                            <div class="spec-row"><span class="spec-label">Beneficios clave</span><span class="spec-value">Vitalidad sexual; limpieza de conductos del pene; estimulación de testosterona y apoyo a la función prostática.</span></div>
+                            <div class="spec-row"><span class="spec-label">Consumo</span><span class="spec-value">1 cápsula.</span></div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- CREATINE GUMMIES -->
+                <div class="producto-card">
+                    <div class="producto-img-container"><img src="img/creatinegummies.png" alt="CREATINE GUMMIES"></div>
+                    <div class="producto-info">
+                        <h3 class="producto-titulo">CREATINE GUMMIES (30)</h3>
+                        <div class="wiki-specs">
+                            <div class="spec-row"><span class="spec-label">Momento de la toma</span><span class="spec-value">Preferiblemente en la mañana o antes del mediodía.</span></div>
+                            <div class="spec-row"><span class="spec-label">Beneficios clave</span><span class="spec-value">Mejora del rendimiento atlético, fuerza y potencia muscular; beneficios cognitivos y apoyo en condiciones neurológicas.</span></div>
+                            <div class="spec-row"><span class="spec-label">Consumo</span><span class="spec-value">Entre 2 gomitas al día.</span></div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- VIAX 4MEN -->
+                <div class="producto-card">
+                    <div class="producto-img-container"><img src="img/viax4men.png" alt="VIAX 4MEN"></div>
+                    <div class="producto-info">
+                        <h3 class="producto-titulo">VIAX 4MEN (8 caps)</h3>
+                        <div class="wiki-specs">
+                            <div class="spec-row"><span class="spec-label">Momento de la toma</span><span class="spec-value">Tomarse 30 minutos a 1 hora antes de la actividad sexual.</span></div>
+                            <div class="spec-row"><span class="spec-label">Beneficios clave</span><span class="spec-value">Incremento de la libido y la función eréctil; mejora el estado de ánimo y la vitalidad diaria.</span></div>
+                            <div class="spec-row"><span class="spec-label">Consumo</span><span class="spec-value">1 cápsula.</span></div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- ASHWAGANDHA GUMMIES -->
+                <div class="producto-card">
+                    <div class="producto-img-container"><img src="img/ashwagummies.png" alt="ASHWA GUMMIES"></div>
+                    <div class="producto-info">
+                        <h3 class="producto-titulo">ASHWA GUMMIES (60)</h3>
+                        <div class="wiki-specs">
+                            <div class="spec-row"><span class="spec-label">Momento de la toma</span><span class="spec-value">Por la mañana (mantiene la calma) o antes de acostarse (relajación nocturna).</span></div>
+                            <div class="spec-row"><span class="spec-label">Beneficios clave</span><span class="spec-value">Reducción de estrés y ansiedad; propiedades antiinflamatorias; apoyo a la función cognitiva e inmunológica.</span></div>
+                            <div class="spec-row"><span class="spec-label">Consumo</span><span class="spec-value">2 gomitas.</span></div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- MACA GUMMIES -->
+                <div class="producto-card">
+                    <div class="producto-img-container"><img src="img/macagummies.png" alt="MACA GUMMIES"></div>
+                    <div class="producto-info">
+                        <h3 class="producto-titulo">MACA GUMMIES (60)</h3>
+                        <div class="wiki-specs">
+                            <div class="spec-row"><span class="spec-label">Momento de la toma</span><span class="spec-value">Ingerir en la mañana o antes del mediodía.</span></div>
+                            <div class="spec-row"><span class="spec-label">Beneficios clave</span><span class="spec-value">Equilibrio hormonal (especialmente en mujeres); mejora de libido, fertilidad masculina y reducción de fatiga física.</span></div>
+                            <div class="spec-row"><span class="spec-label">Consumo</span><span class="spec-value">2 gomitas al día.</span></div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- SHILAJIT GUMMIES -->
+                <div class="producto-card">
+                    <div class="producto-img-container"><img src="img/shilajitgummies.png" alt="SHILAJIT GUMMIES"></div>
+                    <div class="producto-info">
+                        <h3 class="producto-titulo">SHILAJIT GUMMIES (60)</h3>
+                        <div class="wiki-specs">
+                            <div class="spec-row"><span class="spec-label">Momento de la toma</span><span class="spec-value">En ayunas preferiblemente o después del desayuno.</span></div>
+                            <div class="spec-row"><span class="spec-label">Beneficios clave</span><span class="spec-value">Reducción de la fatiga; optimización de la función cognitiva; aumento de testosterona y vitalidad masculina.</span></div>
+                            <div class="spec-row"><span class="spec-label">Consumo</span><span class="spec-value">1 a 2 gomitas.</span></div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- SHILAJIT RESINA -->
+                <div class="producto-card">
+                    <div class="producto-img-container"><img src="img/shilajitresina.png" alt="SHILAJIT RESINA"></div>
+                    <div class="producto-info">
+                        <h3 class="producto-titulo">SHILAJIT RESINA</h3>
+                        <div class="wiki-specs">
+                            <div class="spec-row"><span class="spec-label">Momento de la toma</span><span class="spec-value">Disolver en agua, té o leche en ayunas o después del desayuno.</span></div>
+                            <div class="spec-row"><span class="spec-label">Beneficios clave</span><span class="spec-value">Desintoxicación del cuerpo; apoyo a la memoria, fertilidad y fortalecimiento del sistema inmunológico.</span></div>
+                            <div class="spec-row"><span class="spec-label">Consumo</span><span class="spec-value">Tamaño de un grano de arroz en ayunas.</span></div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- SHILAJIT GOODSSY -->
+                <div class="producto-card">
+                    <div class="producto-img-container"><img src="img/shilajitgoodssy.png" alt="SHILAJIT GOODSSY"></div>
+                    <div class="producto-info">
+                        <h3 class="producto-titulo">SHILAJIT GOODSSY</h3>
+                        <div class="wiki-specs">
+                            <div class="spec-row"><span class="spec-label">Momento de la toma</span><span class="spec-value">En ayunas o después del desayuno.</span></div>
+                            <div class="spec-row"><span class="spec-label">Beneficios clave</span><span class="spec-value">Fortalecimiento óseo y muscular; apoyo al metabolismo, control de peso y equilibrio hormonal integral.</span></div>
+                            <div class="spec-row"><span class="spec-label">Consumo</span><span class="spec-value">2 cápsulas al día.</span></div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- POTENZIA MIEL -->
+                <div class="producto-card">
+                    <div class="producto-img-container"><img src="img/potenziamiel.png" alt="POTENZIA MIEL"></div>
+                    <div class="producto-info">
+                        <h3 class="producto-titulo">POTENZIA MIEL</h3>
+                        <div class="wiki-specs">
+                            <div class="spec-row"><span class="spec-label">Momento de la toma</span><span class="spec-value">Tomarse 5 a 10 minutos antes de la actividad sexual.</span></div>
+                            <div class="spec-row"><span class="spec-label">Beneficios clave</span><span class="spec-value">Mejora del rendimiento sexual; aumento de libido y efecto de bombeo ("pump") físico.</span></div>
+                            <div class="spec-row"><span class="spec-label">Consumo</span><span class="spec-value">Beber todo el sobre.</span></div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- POTENZIA DROPS -->
+                <div class="producto-card">
+                    <div class="producto-img-container"><img src="img/potenziadrops.png" alt="POTENZIA DROPS"></div>
+                    <div class="producto-info">
+                        <h3 class="producto-titulo">POTENZIA DROPS</h3>
+                        <div class="wiki-specs">
+                            <div class="spec-row"><span class="spec-label">Momento de la toma</span><span class="spec-value">Ingerir 30 minutos antes de la actividad o encuentro íntimo.</span></div>
+                            <div class="spec-row"><span class="spec-label">Beneficios clave</span><span class="spec-value">Apoyo hormonal; mejora de la energía y la calidad de la erección por vía circulatoria.</span></div>
+                            <div class="spec-row"><span class="spec-label">Consumo</span><span class="spec-value">Diluir en agua entre 10 y 15 gotas por toma.</span></div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- POTENZIA OIL -->
+                <div class="producto-card">
+                    <div class="producto-img-container"><img src="img/potenziaoil.png" alt="POTENZIA OIL"></div>
+                    <div class="producto-info">
+                        <h3 class="producto-titulo">POTENZIA OIL</h3>
+                        <div class="wiki-specs">
+                            <div class="spec-row"><span class="spec-label">Momento de la toma</span><span class="spec-value">En la noche para masajes y 5-10 minutos antes de la relación sexual.</span></div>
+                            <div class="spec-row"><span class="spec-label">Beneficios clave</span><span class="spec-value">Mejora el rendimiento sexual y la erección; aumento de libido local.</span></div>
+                            <div class="spec-row"><span class="spec-label">Consumo</span><span class="spec-value">Usa únicamente de 3 a 5 gotas en las yemas de los dedos.</span></div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- POTENZIA MULTIVITAMIN -->
+                <div class="producto-card">
+                    <div class="producto-img-container"><img src="img/potenziamultivitamin.png" alt="POTENZIA MULTIVITAMIN"></div>
+                    <div class="producto-info">
+                        <h3 class="producto-titulo">POTENZIA MULTIVITAMIN</h3>
+                        <div class="wiki-specs">
+                            <div class="spec-row"><span class="spec-label">Momento de la toma</span><span class="spec-value">Con un vaso de agua, preferiblemente junto con una de las comidas principales.</span></div>
+                            <div class="spec-row"><span class="spec-label">Beneficios clave</span><span class="spec-value">Cobertura de deficiencias nutricionales; apoya el funcionamiento del sistema inmunológico y la energía diaria.</span></div>
+                            <div class="spec-row"><span class="spec-label">Consumo</span><span class="spec-value">1 tableta al día.</span></div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- POTENZIA GUMMIES -->
+                <div class="producto-card">
+                    <div class="producto-img-container"><img src="img/potenziagummies.png" alt="POTENZIA GUMMIES"></div>
+                    <div class="producto-info">
+                        <h3 class="producto-titulo">POTENZIA GUMMIES</h3>
+                        <div class="wiki-specs">
+                            <div class="spec-row"><span class="spec-label">Momento de la toma</span><span class="spec-value">Comer 30 a 45 minutos antes de la actividad íntima.</span></div>
+                            <div class="spec-row"><span class="spec-label">Beneficios clave</span><span class="spec-value">Optimización de la libido, la circulación sanguínea y el desempeño sexual masculino.</span></div>
+                            <div class="spec-row"><span class="spec-label">Consumo</span><span class="spec-value">2 gomitas.</span></div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- POTENZIA BLISTER -->
+                <div class="producto-card">
+                    <div class="producto-img-container"><img src="img/potenziablister.png" alt="POTENZIA BLISTER"></div>
+                    <div class="producto-info">
+                        <h3 class="producto-titulo">POTENZIA BLISTER</h3>
+                        <div class="wiki-specs">
+                            <div class="spec-row"><span class="spec-label">Momento de la toma</span><span class="spec-value">Entre 30 y 45 minutos antes de iniciar la actividad sexual.</span></div>
+                            <div class="spec-row"><span class="spec-label">Beneficios clave</span><span class="spec-value">Soporte hormonal; aumento de vitalidad y energía para el rendimiento sexual.</span></div>
+                            <div class="spec-row"><span class="spec-label">Consumo</span><span class="spec-value">1 sola tableta.</span></div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- NAD -->
+                <div class="producto-card">
+                    <div class="producto-img-container"><img src="img/nad.png" alt="NAD"></div>
+                    <div class="producto-info">
+                        <h3 class="producto-titulo">NAD</h3>
+                        <div class="wiki-specs">
+                            <div class="spec-row"><span class="spec-label">Momento de la toma</span><span class="spec-value">Idealmente tomar en la mañana para no afectar el sueño.</span></div>
+                            <div class="spec-row"><span class="spec-label">Beneficios clave</span><span class="spec-value">Aumento de ATP; reparación de ADN; mejora de salud cardiovascular y resistencia física; envejecimiento saludable.</span></div>
+                            <div class="spec-row"><span class="spec-label">Consumo</span><span class="spec-value">2 cápsulas.</span></div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- BLACK ANT -->
+                <div class="producto-card">
+                    <div class="producto-img-container"><img src="img/blackant.png" alt="BLACK ANT"></div>
+                    <div class="producto-info">
+                        <h3 class="producto-titulo">BLACK ANT</h3>
+                        <div class="wiki-specs">
+                            <div class="spec-row"><span class="spec-label">Momento de la toma</span><span class="spec-value">Entre 30 y 45 minutos antes de la actividad sexual (permitir masticación).</span></div>
+                            <div class="spec-row"><span class="spec-label">Beneficios clave</span><span class="spec-value">Incremento de libido; mejora de la función eréctil y el estado de ánimo general.</span></div>
+                            <div class="spec-row"><span class="spec-label">Consumo</span><span class="spec-value">1 sola gomita por ocasión.</span></div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- POWER HORSE -->
+                <div class="producto-card">
+                    <div class="producto-img-container"><img src="img/powerhorse.png" alt="POWER HORSE"></div>
+                    <div class="producto-info">
+                        <h3 class="producto-titulo">POWER HORSE</h3>
+                        <div class="wiki-specs">
+                            <div class="spec-row"><span class="spec-label">Momento de la toma</span><span class="spec-value">Diaria (después de comida principal) u ocasional (antes de actividad física/sexual).</span></div>
+                            <div class="spec-row"><span class="spec-label">Beneficios clave</span><span class="spec-value">Soporte de energía y vitalidad; desarrollo de masa y fuerza muscular; rendimiento físico.</span></div>
+                            <div class="spec-row"><span class="spec-label">Consumo</span><span class="spec-value">1 cápsula (ocasional).</span></div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- POWER V -->
+                <div class="producto-card">
+                    <div class="producto-img-container"><img src="img/powerv.png" alt="POWER V"></div>
+                    <div class="producto-info">
+                        <h3 class="producto-titulo">POWER V</h3>
+                        <div class="wiki-specs">
+                            <div class="spec-row"><span class="spec-label">Momento de la toma</span><span class="spec-value">Una cápsula con el desayuno y otra con el almuerzo.</span></div>
+                            <div class="spec-row"><span class="spec-label">Beneficios clave</span><span class="spec-value">Mantenimiento de niveles saludables de testosterona; mejora el aguante y el desempeño general.</span></div>
+                            <div class="spec-row"><span class="spec-label">Consumo</span><span class="spec-value">2 cápsulas al día.</span></div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- ALPHA MEN -->
+                <div class="producto-card">
+                    <div class="producto-img-container"><img src="img/alphamen.png" alt="ALPHA MEN"></div>
+                    <div class="producto-info">
+                        <h3 class="producto-titulo">ALPHA MEN</h3>
+                        <div class="wiki-specs">
+                            <div class="spec-row"><span class="spec-label">Momento de la toma</span><span class="spec-value">Ingerir junto con alimentos, una en la mañana y otra en la tarde.</span></div>
+                            <div class="spec-row"><span class="spec-label">Beneficios clave</span><span class="spec-value">Mejora de la circulación y función eréctil; incremento del deseo sexual y vitalidad general.</span></div>
+                            <div class="spec-row"><span class="spec-label">Consumo</span><span class="spec-value">2 cápsulas.</span></div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- SUPER 4C-FACTOR -->
+                <div class="producto-card">
+                    <div class="producto-img-container"><img src="img/super4cfactor.png" alt="SUPER 4C-FACTOR"></div>
+                    <div class="producto-info">
+                        <h3 class="producto-titulo">SUPER 4C-FACTOR</h3>
+                        <div class="wiki-specs">
+                            <div class="spec-row"><span class="spec-label">Momento de la toma</span><span class="spec-value">Por la mañana con desayuno o 30 min antes de actividad física/íntima.</span></div>
+                            <div class="spec-row"><span class="spec-label">Beneficios clave</span><span class="spec-value">Favorece el flujo sanguíneo y la libido; mejora el rendimiento sexual y la resistencia física.</span></div>
+                            <div class="spec-row"><span class="spec-label">Consumo</span><span class="spec-value">1 sola cápsula al día.</span></div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- T FACTOR MEN -->
+                <div class="producto-card">
+                    <div class="producto-img-container"><img src="img/tfactormen.png" alt="T FACTOR MEN"></div>
+                    <div class="producto-info">
+                        <h3 class="producto-titulo">T FACTOR MEN</h3>
+                        <div class="wiki-specs">
+                            <div class="spec-row"><span class="spec-label">Momento de la toma</span><span class="spec-value">1 cápsula con el desayuno y 1 cápsula con el almuerzo.</span></div>
+                            <div class="spec-row"><span class="spec-label">Beneficios clave</span><span class="spec-value">Mejora del rendimiento físico; apoyo a la fuerza muscular y erecciones más firmes a lo largo de un mes.</span></div>
+                            <div class="spec-row"><span class="spec-label">Consumo</span><span class="spec-value">2 cápsulas o tabletas al día.</span></div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- TONG KALI -->
+                <div class="producto-card">
+                    <div class="producto-img-container"><img src="img/tongkali.png" alt="TONG KALI"></div>
+                    <div class="producto-info">
+                        <h3 class="producto-titulo">TONG KALI</h3>
+                        <div class="wiki-specs">
+                            <div class="spec-row"><span class="spec-label">Momento de la toma</span><span class="spec-value">Temprano por la mañana (con desayuno) o antes del almuerzo.</span></div>
+                            <div class="spec-row"><span class="spec-label">Beneficios clave</span><span class="spec-value">Reducción de estrés y ansiedad; equilibrio hormonal; apoyo a los niveles de testosterona y fertilidad masculina.</span></div>
+                            <div class="spec-row"><span class="spec-label">Consumo</span><span class="spec-value">1 a 2 cápsulas al día.</span></div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- VIGRA XL -->
+                <div class="producto-card">
+                    <div class="producto-img-container"><img src="img/vigraxl.png" alt="VIGRA XL"></div>
+                    <div class="producto-info">
+                        <h3 class="producto-titulo">VIGRA XL</h3>
+                        <div class="wiki-specs">
+                            <div class="spec-row"><span class="spec-label">Momento de la toma</span><span class="spec-value">Por la mañana con el desayuno o al mediodía con el almuerzo.</span></div>
+                            <div class="spec-row"><span class="spec-label">Beneficios clave</span><span class="spec-value">Mejora la circulación; erecciones más firmes; favorece orgasmos más intensos y control sexual.</span></div>
+                            <div class="spec-row"><span class="spec-label">Consumo</span><span class="spec-value">1 cápsula diaria.</span></div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- ERECTUS -->
+                <div class="producto-card">
+                    <div class="producto-img-container"><img src="img/erectus.png" alt="ERECTUS"></div>
+                    <div class="producto-info">
+                        <h3 class="producto-titulo">ERECTUS</h3>
+                        <div class="wiki-specs">
+                            <div class="spec-row"><span class="spec-label">Momento de la toma</span><span class="spec-value">En la mañana con el desayuno.</span></div>
+                            <div class="spec-row"><span class="spec-label">Beneficios clave</span><span class="spec-value">Apoyo a la función eréctil; aumento de libido, energía y salud reproductiva masculina.</span></div>
+                            <div class="spec-row"><span class="spec-label">Consumo</span><span class="spec-value">1 cápsula al día (todos los días o antes de la relación).</span></div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- ENGROMAX -->
+                <div class="producto-card">
+                    <div class="producto-img-container"><img src="img/engromax.png" alt="ENGROMAX"></div>
+                    <div class="producto-info">
+                        <h3 class="producto-titulo">ENGROMAX</h3>
+                        <div class="wiki-specs">
+                            <div class="spec-row"><span class="spec-label">Momento de la toma</span><span class="spec-value">Junto con alimentos (desayuno o almuerzo) para mejorar absorción.</span></div>
+                            <div class="spec-row"><span class="spec-label">Beneficios clave</span><span class="spec-value">Suplemento diseñado para el soporte en el engrosamiento y alargamiento del miembro.</span></div>
+                            <div class="spec-row"><span class="spec-label">Consumo</span><span class="spec-value">1 cápsula.</span></div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- POTENCY 3X CAPS -->
+                <div class="producto-card">
+                    <div class="producto-img-container"><img src="img/potency3xcaps.png" alt="POTENCY 3X CAPS"></div>
+                    <div class="producto-info">
+                        <h3 class="producto-titulo">POTENCY 3X CAPS</h3>
+                        <div class="wiki-specs">
+                            <div class="spec-row"><span class="spec-label">Momento de la toma</span><span class="spec-value">Por la mañana/tarde con alimentos, o 30-45 min antes de la actividad íntima.</span></div>
+                            <div class="spec-row"><span class="spec-label">Beneficios clave</span><span class="spec-value">Apoyo a la circulación y función eréctil; mejora la energía y resistencia masculina.</span></div>
+                            <div class="spec-row"><span class="spec-label">Consumo</span><span class="spec-value">1 cápsula al día.</span></div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- POTENCY 3X GOTAS -->
+                <div class="producto-card">
+                    <div class="producto-img-container"><img src="img/potency3xdrops.png" alt="POTENCY 3X GOTAS"></div>
+                    <div class="producto-info">
+                        <h3 class="producto-titulo">POTENCY 3X GOTAS</h3>
+                        <div class="wiki-specs">
+                            <div class="spec-row"><span class="spec-label">Momento de la toma</span><span class="spec-value">Tomar antes de la relación íntima.</span></div>
+                            <div class="spec-row"><span class="spec-label">Beneficios clave</span><span class="spec-value">Mejora de la resistencia y libido; apoyo a erecciones firmes y control del desempeño.</span></div>
+                            <div class="spec-row"><span class="spec-label">Consumo</span><span class="spec-value">Dosis líquida sublingual / agua.</span></div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- XTRONGER CAPS -->
+                <div class="producto-card">
+                    <div class="producto-img-container"><img src="img/xtrongercaps.png" alt="XTRONGER CAPS"></div>
+                    <div class="producto-info">
+                        <h3 class="producto-titulo">XTRONGER CAPS</h3>
+                        <div class="wiki-specs">
+                            <div class="spec-row"><span class="spec-label">Momento de la toma</span><span class="spec-value">Uso ocasional (Efecto prolongado de 72 horas).</span></div>
+                            <div class="spec-row"><span class="spec-label">Beneficios clave</span><span class="spec-value">Potenciador de uso ocasional de alta intensidad para la firmeza y resistencia.</span></div>
+                            <div class="spec-row"><span class="spec-label">Consumo</span><span class="spec-value">Tomar entre 1 y 2 cápsulas.</span></div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- MAXIMUS 4MEN ONLY -->
+                <div class="producto-card">
+                    <div class="producto-img-container"><img src="img/maximus4men.png" alt="MAXIMUS 4MEN ONLY"></div>
+                    <div class="producto-info">
+                        <h3 class="producto-titulo">MAXIMUS 4MEN ONLY</h3>
+                        <div class="wiki-specs">
+                            <div class="spec-row"><span class="spec-label">Momento de la toma</span><span class="spec-value">1 hora antes de la actividad sexual (no es mantenimiento diario).</span></div>
+                            <div class="spec-row"><span class="spec-label">Beneficios clave</span><span class="spec-value">Nutrición deportiva a base de Tribulus terrestris para máximo rendimiento.</span></div>
+                            <div class="spec-row"><span class="spec-label">Consumo</span><span class="spec-value">1 cápsula al día.</span></div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- MR YOHIMBE -->
+                <div class="producto-card">
+                    <div class="producto-img-container"><img src="img/mryohimbe.png" alt="MR YOHIMBE"></div>
+                    <div class="producto-info">
+                        <h3 class="producto-titulo">MR YOHIMBE</h3>
+                        <div class="wiki-specs">
+                            <div class="spec-row"><span class="spec-label">Momento de la toma</span><span class="spec-value">Por la mañana o antes de dormir con comidas / en ayunas.</span></div>
+                            <div class="spec-row"><span class="spec-label">Beneficios clave</span><span class="spec-value">Soporte a la circulación sanguínea; aumento de vitalidad y rendimiento sexual.</span></div>
+                            <div class="spec-row"><span class="spec-label">Consumo</span><span class="spec-value">1 cápsula previo al evento o con el desayuno.</span></div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- BLACK BULL EXTREME SOBRES -->
+                <div class="producto-card">
+                    <div class="producto-img-container"><img src="img/blackbullextreme.png" alt="BLACK BULL EXTREME"></div>
+                    <div class="producto-info">
+                        <h3 class="producto-titulo">BLACK BULL EXTREME (Sobres)</h3>
+                        <div class="wiki-specs">
+                            <div class="spec-row"><span class="spec-label">Momento de la toma</span><span class="spec-value">Booster de energía previo al encuentro íntimo.</span></div>
+                            <div class="spec-row"><span class="spec-label">Beneficios clave</span><span class="spec-value">Aumento de la resistencia y rendimiento sexual; mejora de la confianza y el bienestar.</span></div>
+                            <div class="spec-row"><span class="spec-label">Consumo</span><span class="spec-value">Acompañado de agua.</span></div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- BLACK BULL EXTREME CAPS -->
+                <div class="producto-card">
+                    <div class="producto-img-container"><img src="img/blackbullcaps.png" alt="BLACK BULL CAPS"></div>
+                    <div class="producto-info">
+                        <h3 class="producto-titulo">BLACK BULL EXTREME CAPS</h3>
+                        <div class="wiki-specs">
+                            <div class="spec-row"><span class="spec-label">Momento de la toma</span><span class="spec-value">Fórmula para el rendimiento masculino constante.</span></div>
+                            <div class="spec-row"><span class="spec-label">Beneficios clave</span><span class="spec-value">Aumento de libido, energía y vitalidad en formato cápsula.</span></div>
+                            <div class="spec-row"><span class="spec-label">Consumo</span><span class="spec-value">Dosis estándar recomendada.</span></div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- VIGRAMEN -->
+                <div class="producto-card">
+                    <div class="producto-img-container"><img src="img/vigramen.png" alt="VIGRAMEN"></div>
+                    <div class="producto-info">
+                        <h3 class="producto-titulo">VIGRAMEN</h3>
+                        <div class="wiki-specs">
+                            <div class="spec-row"><span class="spec-label">Momento de la toma</span><span class="spec-value">Por las mañanas junto con el desayuno.</span></div>
+                            <div class="spec-row"><span class="spec-label">Beneficios clave</span><span class="spec-value">Reducción del estrés; mejora de libido, rendimiento y vitalidad sexual.</span></div>
+                            <div class="spec-row"><span class="spec-label">Consumo</span><span class="spec-value">1 a 2 cápsulas al día.</span></div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- DIA B-T GOTAS -->
+                <div class="producto-card">
+                    <div class="producto-img-container"><img src="img/diabtgotas.png" alt="DIA B-T GOTAS"></div>
+                    <div class="producto-info">
+                        <h3 class="producto-titulo">DIA B-T GOTAS</h3>
+                        <div class="wiki-specs">
+                            <div class="spec-row"><span class="spec-label">Momento de la toma</span><span class="spec-value">3 veces al día (total 60 gotas).</span></div>
+                            <div class="spec-row"><span class="spec-label">Beneficios clave</span><span class="spec-value">Propiedades antioxidantes y antiinflamatorias; apoyo al sistema inmunológico y salud cerebral.</span></div>
+                            <div class="spec-row"><span class="spec-label">Consumo</span><span class="spec-value">20 gotas por toma.</span></div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- COLLAGEN CAPS -->
+                <div class="producto-card">
+                    <div class="producto-img-container"><img src="img/collagencaps.png" alt="COLLAGEN CAPS"></div>
+                    <div class="producto-info">
+                        <h3 class="producto-titulo">COLLAGEN CAPS</h3>
+                        <div class="wiki-specs">
+                            <div class="spec-row"><span class="spec-label">Momento de la toma</span><span class="spec-value">En la noche (vacío) para articulaciones, o en ayunas para energía.</span></div>
+                            <div class="spec-row"><span class="spec-label">Beneficios clave</span><span class="spec-value">Firmeza de la piel; fortalecimiento de huesos, articulaciones y cartílagos; reparación de tejidos.</span></div>
+                            <div class="spec-row"><span class="spec-label">Consumo</span><span class="spec-value">1 a 2 cápsulas al día.</span></div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- SUPER FLEX 2000 -->
+                <div class="producto-card">
+                    <div class="producto-img-container"><img src="img/superflex2000.png" alt="SUPER FLEX 2000"></div>
+                    <div class="producto-info">
+                        <h3 class="producto-titulo">SUPER FLEX 2000</h3>
+                        <div class="wiki-specs">
+                            <div class="spec-row"><span class="spec-label">Momento de la toma</span><span class="spec-value">Luego de ingerir algún alimento (desayuno, almuerzo o cena).</span></div>
+                            <div class="spec-row"><span class="spec-label">Beneficios clave</span><span class="spec-value">Lubricación y amortiguación articular; regeneración de cartílago; reducción de dolor y rigidez.</span></div>
+                            <div class="spec-row"><span class="spec-label">Consumo</span><span class="spec-value">Tomar 2 cápsulas al día.</span></div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- FLEX SOLUTION CAPS -->
+                <div class="producto-card">
+                    <div class="producto-img-container"><img src="img/flexsolutioncaps.png" alt="FLEX SOLUTION CAPS"></div>
+                    <div class="producto-info">
+                        <h3 class="producto-titulo">FLEX SOLUTION CAPS</h3>
+                        <div class="wiki-specs">
+                            <div class="spec-row"><span class="spec-label">Momento de la toma</span><span class="spec-value">Siempre junto con las comidas principales.</span></div>
+                            <div class="spec-row"><span class="spec-label">Beneficios clave</span><span class="spec-value">Reducción de inflamación y dolor; protección del cartílago y mejora de la movilidad articular.</span></div>
+                            <div class="spec-row"><span class="spec-label">Consumo</span><span class="spec-value">1 a 2 cápsulas diarias.</span></div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- OMEGA 3 -->
+                <div class="producto-card">
+                    <div class="producto-img-container"><img src="img/omega3.png" alt="OMEGA 3"></div>
+                    <div class="producto-info">
+                        <h3 class="producto-titulo">OMEGA 3</h3>
+                        <div class="wiki-specs">
+                            <div class="spec-row"><span class="spec-label">Momento de la toma</span><span class="spec-value">Acompañadas de alimentos (desayuno o almuerzo).</span></div>
+                            <div class="spec-row"><span class="spec-label">Beneficios clave</span><span class="spec-value">Salud cardiovascular; reducción de triglicéridos y presión arterial; apoyo a la memoria y función cognitiva.</span></div>
+                            <div class="spec-row"><span class="spec-label">Consumo</span><span class="spec-value">1 a 2 cápsulas diarias.</span></div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- WOMEN'S HORMONE BALANCE -->
+                <div class="producto-card">
+                    <div class="producto-img-container"><img src="img/womenshormonebalance.png" alt="WOMEN'S HORMONE BALANCE"></div>
+                    <div class="producto-info">
+                        <h3 class="producto-titulo">WOMEN'S HORMONE BALANCE</h3>
+                        <div class="wiki-specs">
+                            <div class="spec-row"><span class="spec-label">Momento de la toma</span><span class="spec-value">Debajo de la lengua o mezclado en agua/jugo en la mañana.</span></div>
+                            <div class="spec-row"><span class="spec-label">Beneficios clave</span><span class="spec-value">Regulación del ciclo menstrual; mejora del sueño y estado de ánimo; apoyo al control de peso.</span></div>
+                            <div class="spec-row"><span class="spec-label">Consumo</span><span class="spec-value">20 gotas dos veces al día.</span></div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- FEMINA CÁPSULAS -->
+                <div class="producto-card">
+                    <div class="producto-img-container"><img src="img/feminacapsulas.png" alt="FEMINA CÁPSULAS"></div>
+                    <div class="producto-info">
+                        <h3 class="producto-titulo">FEMINA CÁPSULAS</h3>
+                        <div class="wiki-specs">
+                            <div class="spec-row"><span class="spec-label">Momento de la toma</span><span class="spec-value">Se recomienda ingerirlas junto con alimentos.</span></div>
+                            <div class="spec-row"><span class="spec-label">Beneficios clave</span><span class="spec-value">Reducción de sofocos y sudores nocturnos; equilibrio hormonal y mejora de salud ósea.</span></div>
+                            <div class="spec-row"><span class="spec-label">Consumo</span><span class="spec-value">Tomar de 1 a 3 cápsulas al día.</span></div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- FULL 4 WOMEN'S -->
+                <div class="producto-card">
+                    <div class="producto-img-container"><img src="img/full4womens.png" alt="FULL 4 WOMEN'S"></div>
+                    <div class="producto-info">
+                        <h3 class="producto-titulo">FULL 4 WOMEN'S</h3>
+                        <div class="wiki-specs">
+                            <div class="spec-row"><span class="spec-label">Momento de la toma</span><span class="spec-value">Se toma por la mañana con el desayuno.</span></div>
+                            <div class="spec-row"><span class="spec-label">Beneficios clave</span><span class="spec-value">Aporte de nutrientes esenciales; refuerzo inmunológico; energía y vitalidad diaria.</span></div>
+                            <div class="spec-row"><span class="spec-label">Consumo</span><span class="spec-value">Tomar 1 cápsula al día.</span></div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- FULL 4 MEN'S -->
+                <div class="producto-card">
+                    <div class="producto-img-container"><img src="img/full4mens.png" alt="FULL 4 MEN'S"></div>
+                    <div class="producto-info">
+                        <h3 class="producto-titulo">FULL 4 MEN'S</h3>
+                        <div class="wiki-specs">
+                            <div class="spec-row"><span class="spec-label">Momento de la toma</span><span class="spec-value">Por la mañana con el desayuno.</span></div>
+                            <div class="spec-row"><span class="spec-label">Beneficios clave</span><span class="spec-value">Incremento de la libido; mejora de energía, circulación y rendimiento sexual.</span></div>
+                            <div class="spec-row"><span class="spec-label">Consumo</span><span class="spec-value">Tomar 1 cápsula al día.</span></div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </section>
+
+
+        <!-- ========================================== -->
+        <!-- SECCIÓN 2: PARCHES DE USO TÓPICO -->
+        <!-- ========================================== -->
+        <section class="wiki-section">
+            <h2 class="section-title">Sección 2: Parches de Uso Tópico</h2>
+            <div class="productos-grid">
+
+                <!-- DIABETIC PATCH -->
+                <div class="producto-card">
+                    <div class="producto-img-container"><img src="img/diabeticpatch.png" alt="DIABETIC PATCH"></div>
+                    <div class="producto-info">
+                        <h3 class="producto-titulo">DIABETIC PATCH</h3>
+                        <div class="wiki-specs">
+                            <div class="spec-row"><span class="spec-label">Tipo de producto</span><span class="spec-value">Parche de absorción transdérmica (24h - 3 días).</span></div>
+                            <div class="spec-row"><span class="spec-label">Beneficios clave</span><span class="spec-value">Fórmula natural para el soporte en personas con Diabetes Tipo I y II.</span></div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- HIPERTENSIÓN PATCH -->
+                <div class="producto-card">
+                    <div class="producto-img-container"><img src="img/hypertensionpatch.png" alt="HIPERTENSIÓN PATCH"></div>
+                    <div class="producto-info">
+                        <h3 class="producto-titulo">HIPERTENSIÓN PATCH</h3>
+                        <div class="wiki-specs">
+                            <div class="spec-row"><span class="spec-label">Tipo de producto</span><span class="spec-value">Parche cardiovascular.</span></div>
+                            <div class="spec-row"><span class="spec-label">Beneficios clave</span><span class="spec-value">Apoyo a la salud arterial y mantenimiento de los niveles de presión sanguínea.</span></div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- PARCHE PROSTÁTICO -->
+                <div class="producto-card">
+                    <div class="producto-img-container"><img src="img/parcheprostatico.png" alt="PARCHE PROSTÁTICO"></div>
+                    <div class="producto-info">
+                        <h3 class="producto-titulo">PARCHE PROSTÁTICO</h3>
+                        <div class="wiki-specs">
+                            <div class="spec-row"><span class="spec-label">Tipo de producto</span><span class="spec-value">Parche herbal de medicina tradicional.</span></div>
+                            <div class="spec-row"><span class="spec-label">Beneficios clave</span><span class="spec-value">Alivio de micción frecuente, molestias de próstata y salud de la vejiga.</span></div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- PARCHES PESO -->
+                <div class="producto-card">
+                    <div class="producto-img-container"><img src="img/parchespeso.png" alt="PARCHES PESO"></div>
+                    <div class="producto-info">
+                        <h3 class="producto-titulo">PARCHES PESO (Abdomen/Piernas)</h3>
+                        <div class="wiki-specs">
+                            <div class="spec-row"><span class="spec-label">Tipo de producto</span><span class="spec-value">Parche de liberación gradual de activos.</span></div>
+                            <div class="spec-row"><span class="spec-label">Beneficios clave</span><span class="spec-value">Control del apetito; apoyo al metabolismo; quema de grasa y tonificación local.</span></div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </section>
+
+
+        <!-- ========================================== -->
+        <!-- SECCIÓN 3: PRODUCTOS TÓPICOS -->
+        <!-- ========================================== -->
+        <section class="wiki-section">
+            <h2 class="section-title">Sección 3: Tópicos (Cremas, Geles y Sprays)</h2>
+            <div class="productos-grid">
+
+                <!-- STUD 100 -->
+                <div class="producto-card">
+                    <div class="producto-img-container"><img src="img/stud100.png" alt="STUD 100"></div>
+                    <div class="producto-info">
+                        <h3 class="producto-titulo">STUD 100</h3>
+                        <div class="wiki-specs">
+                            <div class="spec-row"><span class="spec-label">Tipo de producto</span><span class="spec-value">Spray retardante.</span></div>
+                            <div class="spec-row"><span class="spec-label">Beneficios clave</span><span class="spec-value">Control de la eyaculación; mayor duración y satisfacción sexual.</span></div>
+                            <div class="spec-row"><span class="spec-label">Modo de uso</span><span class="spec-value">Aplicar en el glande 5 minutos antes del acto sexual.</span></div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- POTENZIA SPRAY -->
+                <div class="producto-card">
+                    <div class="producto-img-container"><img src="img/potenziaspray.png" alt="POTENZIA SPRAY"></div>
+                    <div class="producto-info">
+                        <h3 class="producto-titulo">POTENZIA SPRAY</h3>
+                        <div class="wiki-specs">
+                            <div class="spec-row"><span class="spec-label">Tipo de producto</span><span class="spec-value">Spray retardante de alta precisión.</span></div>
+                            <div class="spec-row"><span class="spec-label">Beneficios clave</span><span class="spec-value">Retrasa la eyaculación entre 10 y 25 minutos adicionales; mejora la confianza.</span></div>
+                            <div class="spec-row"><span class="spec-label">Modo de uso</span><span class="spec-value">Aplicar en el glande 5 minutos antes del acto sexual.</span></div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- BIG XXL CREMA -->
+                <div class="producto-card">
+                    <div class="producto-img-container"><img src="img/bigxxl.png" alt="BIG XXL CREMA"></div>
+                    <div class="producto-info">
+                        <h3 class="producto-titulo">BIG XXL CREMA (ROJO)</h3>
+                        <div class="wiki-specs">
+                            <div class="spec-row"><span class="spec-label">Tipo de producto</span><span class="spec-value">Crema de aplicación local con masaje.</span></div>
+                            <div class="spec-row"><span class="spec-label">Beneficios clave</span><span class="spec-value">Efecto temporal de volumen y mayor firmeza en erecciones; acción retardante.</span></div>
+                            <div class="spec-row"><span class="spec-label">Modo de uso</span><span class="spec-value">1-2 veces al día (constante) o 10-15 min antes del acto íntimo.</span></div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- RHINO GOLD -->
+                <div class="producto-card">
+                    <div class="producto-img-container"><img src="img/rhinogold.png" alt="RHINO GOLD"></div>
+                    <div class="producto-info">
+                        <h3 class="producto-titulo">RHINO GOLD</h3>
+                        <div class="wiki-specs">
+                            <div class="spec-row"><span class="spec-label">Tipo de producto</span><span class="spec-value">Gel estimulante.</span></div>
+                            <div class="spec-row"><span class="spec-label">Beneficios clave</span><span class="spec-value">Utilizado como producto retardante y potenciador de la erección.</span></div>
+                            <div class="spec-row"><span class="spec-label">Modo de uso</span><span class="spec-value">Aplicar directamente sobre la piel limpia del miembro antes de la relación.</span></div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- MAXMAN GEL -->
+                <div class="producto-card">
+                    <div class="producto-img-container"><img src="img/maxman.png" alt="MAXMAN GEL"></div>
+                    <div class="producto-info">
+                        <h3 class="producto-titulo">MAXMAN GEL</h3>
+                        <div class="wiki-specs">
+                            <div class="spec-row"><span class="spec-label">Tipo de producto</span><span class="spec-value">Gel para rutina de masaje y retardante.</span></div>
+                            <div class="spec-row"><span class="spec-label">Beneficios clave</span><span class="spec-value">Erecciones más firmes y efecto retardante.</span></div>
+                            <div class="spec-row"><span class="spec-label">Modo de uso</span><span class="spec-value">10-20 min antes. Nota: Lavar si hay sexo oral (sabor amargo).</span></div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- TITAN GOLD GEL -->
+                <div class="producto-card">
+                    <div class="producto-img-container"><img src="img/titangold.png" alt="TITAN GOLD GEL"></div>
+                    <div class="producto-info">
+                        <h3 class="producto-titulo">TITAN GOLD GEL</h3>
+                        <div class="wiki-specs">
+                            <div class="spec-row"><span class="spec-label">Tipo de producto</span><span class="spec-value">Gel de aplicación en longitud y base.</span></div>
+                            <div class="spec-row"><span class="spec-label">Beneficios clave</span><span class="spec-value">Retardante, lubricante y mejor erección con cambios progresivos a 1-2 meses.</span></div>
+                            <div class="spec-row"><span class="spec-label">Modo de uso</span><span class="spec-value">10-15 minutos antes o uso diario.</span></div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- ENLARGER MASSAGE OIL -->
+                <div class="producto-card">
+                    <div class="producto-img-container"><img src="img/enlargermassageoil.png" alt="ENLARGER MASSAGE OIL"></div>
+                    <div class="producto-info">
+                        <h3 class="producto-titulo">ENLARGER MASSAGE OIL</h3>
+                        <div class="wiki-specs">
+                            <div class="spec-row"><span class="spec-label">Tipo de producto</span><span class="spec-value">Aceite lubricante.</span></div>
+                            <div class="spec-row"><span class="spec-label">Beneficios clave</span><span class="spec-value">Reducción de fricción; mejora la suavidad y el placer íntimo.</span></div>
+                            <div class="spec-row"><span class="spec-label">Modo de uso</span><span class="spec-value">Ideal para masajes íntimos y confort durante el coito.</span></div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- ENLARGER OIL/X -->
+                <div class="producto-card">
+                    <div class="producto-img-container"><img src="img/enlargeroilx.png" alt="ENLARGER OIL/X"></div>
+                    <div class="producto-info">
+                        <h3 class="producto-titulo">ENLARGER OIL/X</h3>
+                        <div class="wiki-specs">
+                            <div class="spec-row"><span class="spec-label">Tipo de producto</span><span class="spec-value">Gel estimulante.</span></div>
+                            <div class="spec-row"><span class="spec-label">Beneficios clave</span><span class="spec-value">Aumento de la excitación y sensibilidad local.</span></div>
+                            <div class="spec-row"><span class="spec-label">Modo de uso</span><span class="spec-value">Produce sensación de frío/calor (mentol); efecto temporal.</span></div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- FLEX SOLUTION CREMA -->
+                <div class="producto-card">
+                    <div class="producto-img-container"><img src="img/flexsolutioncrema.png" alt="FLEX SOLUTION CREMA"></div>
+                    <div class="producto-info">
+                        <h3 class="producto-titulo">FLEX SOLUTION CREMA</h3>
+                        <div class="wiki-specs">
+                            <div class="spec-row"><span class="spec-label">Tipo de producto</span><span class="spec-value">Crema analgésica tópica.</span></div>
+                            <div class="spec-row"><span class="spec-label">Beneficios clave</span><span class="spec-value">Alivio local del dolor e inflamación articular.</span></div>
+                            <div class="spec-row"><span class="spec-label">Modo de uso</span><span class="spec-value">Aplicación tópica para mejorar movilidad y flexibilidad.</span></div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </section>
+
+
+        <!-- ========================================== -->
+        <!-- SECCIÓN 4: DISPOSITIVOS Y ACCESORIOS -->
+        <!-- ========================================== -->
+        <section class="wiki-section">
+            <h2 class="section-title">Sección 4: Dispositivos y Accesorios Masculinos</h2>
+            <div class="productos-grid">
+
+                <!-- ELASTIC RING -->
+                <div class="producto-card">
+                    <div class="producto-img-container"><img src="img/elasticring.png" alt="ELASTIC RING"></div>
+                    <div class="producto-info">
+                        <h3 class="producto-titulo">ELASTIC RING / PLEASURE RING</h3>
+                        <div class="wiki-specs">
+                            <div class="spec-row"><span class="spec-label">Categoría</span><span class="spec-value">Anillo de constricción.</span></div>
+                            <div class="spec-row"><span class="spec-label">Beneficios técnicos</span><span class="spec-value">Mantiene una erección más firme y duradera; retrasa la eyaculación por retención sanguínea.</span></div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- LILY / PLAY / MAGIC RING -->
+                <div class="producto-card">
+                    <div class="producto-img-container"><img src="img/magicring.png" alt="MAGIC RING"></div>
+                    <div class="producto-info">
+                        <h3 class="producto-titulo">LILY / PLAY / MAGIC RING</h3>
+                        <div class="wiki-specs">
+                            <div class="spec-row"><span class="spec-label">Categoría</span><span class="spec-value">Anillo de soporte.</span></div>
+                            <div class="spec-row"><span class="spec-label">Beneficios técnicos</span><span class="spec-value">Aumenta la sensibilidad y ayuda a sostener la rigidez de la base.</span></div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- ELECTRIC PUMP -->
+                <div class="producto-card">
+                    <div class="producto-img-container"><img src="img/electricpump.png" alt="ELECTRIC PUMP"></div>
+                    <div class="producto-info">
+                        <h3 class="producto-titulo">ELECTRIC PUMP</h3>
+                        <div class="wiki-specs">
+                            <div class="spec-row"><span class="spec-label">Categoría</span><span class="spec-value">Bomba de vacío automática.</span></div>
+                            <div class="spec-row"><span class="spec-label">Beneficios técnicos</span><span class="spec-value">Dispositivo no invasivo para inducir el flujo sanguíneo y tratar disfunción.</span></div>
+                            <div class="spec-row"><span class="spec-label">Seguridad</span><span class="spec-value">No produce aumento permanente. Uso exclusivo en rehabilitación.</span></div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- MANUAL PUMP -->
+                <div class="producto-card">
+                    <div class="producto-img-container"><img src="img/manualpump.png" alt="MANUAL PUMP"></div>
+                    <div class="producto-info">
+                        <h3 class="producto-titulo">MANUAL PUMP / HYDRO PUMP</h3>
+                        <div class="wiki-specs">
+                            <div class="spec-row"><span class="spec-label">Categoría</span><span class="spec-value">Bomba de vacío (Aire/Agua).</span></div>
+                            <div class="spec-row"><span class="spec-label">Beneficios técnicos</span><span class="spec-value">Mejora temporal de la firmeza y el tamaño durante el uso del dispositivo.</span></div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- VAG TOY -->
+                <div class="producto-card">
+                    <div class="producto-img-container"><img src="img/vagtoy.png" alt="VAG TOY"></div>
+                    <div class="producto-info">
+                        <h3 class="producto-titulo">VAG TOY</h3>
+                        <div class="wiki-specs">
+                            <div class="spec-row"><span class="spec-label">Categoría</span><span class="spec-value">Accesorio de silicona.</span></div>
+                            <div class="spec-row"><span class="spec-label">Beneficios técnicos</span><span class="spec-value">Estimulación íntima individual con material suave y flexible; diseño portátil.</span></div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </section>
+
+    </div>
+
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            const searchInput = document.getElementById('product-search');
+            const count = document.getElementById('search-count');
+            const cards = Array.from(document.querySelectorAll('.producto-card'));
+
+            if (!searchInput || !count || cards.length === 0) return;
+
+            function normalize(value) {
+                return String(value || '')
+                    .toLowerCase()
+                    .normalize('NFD')
+                    .replace(/[\u0300-\u036f]/g, '')
+                    .trim();
+            }
+
+            function updateResults() {
+                const query = normalize(searchInput.value);
+                let visible = 0;
+
+                cards.forEach(function (card) {
+                    const productText = normalize(card.innerText || card.textContent);
+                    const matches = query === '' || productText.indexOf(query) !== -1;
+                    card.style.display = matches ? '' : 'none';
+                    if (matches) visible += 1;
+                });
+
+                count.textContent = visible + ' producto' + (visible === 1 ? '' : 's');
+            }
+
+            searchInput.addEventListener('input', updateResults);
+            searchInput.addEventListener('change', updateResults);
+            searchInput.addEventListener('keyup', updateResults);
+            updateResults();
+        });
+    </script>
+</body>
+</html>
