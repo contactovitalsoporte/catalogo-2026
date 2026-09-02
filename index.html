@@ -236,6 +236,114 @@
             .catalog-toolbar { align-items: stretch; flex-direction: column; }
             .search-label, .search-count { white-space: normal; }
         }
+        /* Modo oscuro añadido */
+        body.dark-mode {
+            --primary: #e2e8f0;
+            --accent: #60a5fa;
+            --bg-color: #0f172a;
+            --text-main: #e5e7eb;
+            --text-muted: #94a3b8;
+            --border-color: #334155;
+        }
+
+        body.dark-mode .wiki-header,
+        body.dark-mode .catalog-toolbar,
+        body.dark-mode .producto-card,
+        body.dark-mode .no-results {
+            background: #111827;
+            border-color: var(--border-color);
+            box-shadow: 0 8px 24px rgba(0, 0, 0, 0.22);
+        }
+
+        body.dark-mode .section-title {
+            background: #1e293b;
+            color: #f8fafc;
+        }
+
+        body.dark-mode .tag-wiki {
+            background: #1e293b;
+            color: #e2e8f0;
+        }
+
+        body.dark-mode .producto-img-container {
+            background: #0f172a;
+            border-bottom-color: var(--border-color);
+        }
+
+        body.dark-mode .producto-titulo {
+            color: #f8fafc;
+            border-bottom-color: #334155;
+        }
+
+        body.dark-mode .wiki-specs {
+            background: #1e293b;
+            border-color: #334155;
+        }
+
+        body.dark-mode #product-search {
+            background: #0f172a;
+            border-color: #475569;
+            color: #f8fafc;
+        }
+
+        body.dark-mode #product-search::placeholder {
+            color: #94a3b8;
+        }
+
+        .theme-toggle {
+            position: fixed;
+            top: 24px;
+            right: 24px;
+            z-index: 1000;
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            border: 1px solid rgba(255, 255, 255, 0.18);
+            border-radius: 999px;
+            padding: 11px 17px;
+            background: linear-gradient(135deg, #0b1329, #1e3a8a);
+            color: #ffffff;
+            box-shadow: 0 8px 22px rgba(11, 19, 41, 0.25);
+            cursor: pointer;
+            font: inherit;
+            font-size: 0.9rem;
+            font-weight: 700;
+            letter-spacing: 0.1px;
+            transition: transform 0.2s ease, box-shadow 0.2s ease, background 0.2s ease;
+        }
+
+        .theme-toggle:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 12px 28px rgba(11, 19, 41, 0.34);
+        }
+
+        .theme-toggle:focus-visible {
+            outline: 3px solid rgba(96, 165, 250, 0.55);
+            outline-offset: 3px;
+        }
+
+        .theme-toggle-icon {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 22px;
+            height: 22px;
+            font-size: 1.2rem;
+            line-height: 1;
+        }
+
+        body.dark-mode .theme-toggle {
+            background: linear-gradient(135deg, #2563eb, #0f172a);
+        }
+
+        @media (max-width: 700px) {
+            .theme-toggle {
+                top: 14px;
+                right: 14px;
+                padding: 10px 13px;
+                font-size: 0.82rem;
+            }
+        }
     </style>
 </head>
 <body>
@@ -249,6 +357,11 @@
             </div>
             <span class="tag-wiki">Desarrollado y administrado por IT.</span>
         </header>
+
+        <button id="theme-toggle" class="theme-toggle" type="button" aria-pressed="false" aria-label="Activar modo oscuro">
+            <span class="theme-toggle-icon" aria-hidden="true">☾</span>
+            <span class="theme-toggle-text">Modo oscuro</span>
+        </button>
 
         <div class="catalog-toolbar" role="search">
             <label class="search-label" for="product-search">Buscar producto:</label>
@@ -1200,6 +1313,37 @@
             searchInput.addEventListener('change', updateResults);
             searchInput.addEventListener('keyup', updateResults);
             updateResults();
+        });
+
+        // Control profesional de modo oscuro
+        document.addEventListener('DOMContentLoaded', function () {
+            const themeToggle = document.getElementById('theme-toggle');
+            const savedTheme = localStorage.getItem('contacto-vital-theme');
+
+            if (!themeToggle) return;
+
+            if (savedTheme === 'dark') {
+                document.body.classList.add('dark-mode');
+            }
+
+            function updateThemeToggle() {
+                const isDarkMode = document.body.classList.contains('dark-mode');
+                const icon = themeToggle.querySelector('.theme-toggle-icon');
+                const text = themeToggle.querySelector('.theme-toggle-text');
+
+                themeToggle.setAttribute('aria-pressed', String(isDarkMode));
+                themeToggle.setAttribute('aria-label', isDarkMode ? 'Activar modo claro' : 'Activar modo oscuro');
+                icon.textContent = isDarkMode ? '☀' : '☾';
+                text.textContent = isDarkMode ? 'Modo claro' : 'Modo oscuro';
+            }
+
+            themeToggle.addEventListener('click', function () {
+                const isDarkMode = document.body.classList.toggle('dark-mode');
+                localStorage.setItem('contacto-vital-theme', isDarkMode ? 'dark' : 'light');
+                updateThemeToggle();
+            });
+
+            updateThemeToggle();
         });
     </script>
 </body>
