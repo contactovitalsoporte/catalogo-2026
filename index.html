@@ -20,7 +20,7 @@
             font-family: 'Plus Jakarta Sans', sans-serif;
             background: var(--bg-color);
             margin: 0;
-            padding: 30px;
+            padding: clamp(16px, 3vw, 30px);
             color: var(--text-main);
         }
 
@@ -31,44 +31,61 @@
 
         .wiki-header {
             display: flex;
-            justify-content: space-between;
+            justify-content: flex-start;
             align-items: center;
             background: #ffffff;
-            padding: 25px 35px;
+            padding: clamp(18px, 3vw, 25px) clamp(18px, 4vw, 35px);
+            padding-right: clamp(90px, 13vw, 170px);
             border-radius: 12px;
             box-shadow: 0 4px 15px rgba(0,0,0,0.05);
             border: 1px solid var(--border-color);
-            margin-bottom: 30px;
+            margin-bottom: 14px;
         }
 
         .logo-area {
             display: flex;
             align-items: center;
-            gap: 20px;
+            gap: clamp(12px, 2vw, 20px);
+            min-width: 0;
+            width: 100%;
         }
 
         .logo-area img {
-            height: 95px; 
-            width: auto;
+            flex: 0 1 auto;
+            width: clamp(58px, 12vw, 125px);
+            max-width: 25%;
+            height: auto;
+            max-height: 95px;
             object-fit: contain;
         }
 
         .logo-area h1 {
             color: var(--primary);
-            font-size: 2.2rem;
+            font-size: clamp(1.15rem, 3vw, 2.2rem);
+            line-height: 1.15;
+            overflow-wrap: anywhere;
             margin: 0;
+            min-width: 0;
             font-weight: 700;
         }
 
-        .tag-wiki {
-            font-size: 0.75rem;
-            background: #eef2f7;
-            color: var(--primary);
-            padding: 6px 14px;
-            border-radius: 20px;
+        .it-credit {
+            margin: 0 4px 30px;
+            color: var(--text-muted);
+            font-size: clamp(0.68rem, 1.2vw, 0.78rem);
             font-weight: 600;
-            letter-spacing: 1px;
-            text-transform: uppercase;
+            letter-spacing: 0.04em;
+            text-align: right;
+        }
+
+        .it-credit::before {
+            content: '';
+            display: inline-block;
+            width: 28px;
+            height: 1px;
+            margin: 0 9px 3px 0;
+            background: var(--accent);
+            opacity: 0.7;
         }
 
         /* Estilos de Secciones */
@@ -233,8 +250,22 @@
         }
 
         @media (max-width: 700px) {
+            .wiki-header {
+                padding-right: 18px;
+            }
+
+            .logo-area {
+                align-items: flex-start;
+            }
+
+            .logo-area img {
+                width: clamp(54px, 18vw, 82px);
+                max-width: 24%;
+            }
+
             .catalog-toolbar { align-items: stretch; flex-direction: column; }
             .search-label, .search-count { white-space: normal; }
+            .it-credit { text-align: center; }
         }
         /* Modo oscuro añadido */
         body.dark-mode {
@@ -355,8 +386,8 @@
                 <img src="img/logo.png" alt="Contacto Vital Logo">
                 <h1>TABLA DE REFERENCIA RÁPIDA: CATÁLOGO 2026 - CONTACTO VITAL</h1>
             </div>
-            <span class="tag-wiki">Desarrollado y administrado por IT.</span>
         </header>
+        <p class="it-credit">Desarrollado y administrado por IT</p>
 
         <button id="theme-toggle" class="theme-toggle" type="button" aria-pressed="false" aria-label="Activar modo oscuro">
             <span class="theme-toggle-icon" aria-hidden="true">☾</span>
