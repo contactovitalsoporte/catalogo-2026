@@ -8,38 +8,64 @@
     <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <style>
         :root {
-            --primary: #0b1329;
-            --accent: #0066ff;
-            --bg-color: #f4f6f9;
-            --text-main: #2d3748;
-            --text-muted: #718096;
-            --border-color: #cbd5e1;
+            --primary: #10233f;
+            --primary-soft: #1f426d;
+            --accent: #1d78f2;
+            --accent-soft: #e8f1ff;
+            --bg-color: #f5f8fc;
+            --surface: #ffffff;
+            --surface-soft: #f8fbff;
+            --text-main: #26364a;
+            --text-muted: #6b7b91;
+            --border-color: #dce5f0;
+            --shadow-sm: 0 8px 24px rgba(24, 55, 91, 0.06);
+            --shadow-md: 0 16px 40px rgba(24, 55, 91, 0.10);
         }
 
         body {
             font-family: 'Plus Jakarta Sans', sans-serif;
-            background: var(--bg-color);
+            background:
+                radial-gradient(circle at 8% 0%, rgba(29, 120, 242, 0.09), transparent 28rem),
+                radial-gradient(circle at 96% 18%, rgba(56, 189, 248, 0.08), transparent 24rem),
+                var(--bg-color);
             margin: 0;
-            padding: clamp(16px, 3vw, 30px);
+            padding: clamp(16px, 3vw, 34px);
             color: var(--text-main);
+            min-height: 100vh;
         }
 
         .wiki-container {
             max-width: 1400px;
             margin: 0 auto;
+            position: relative;
+            z-index: 1;
         }
 
         .wiki-header {
             display: flex;
             justify-content: flex-start;
             align-items: center;
-            background: #ffffff;
-            padding: clamp(18px, 3vw, 25px) clamp(18px, 4vw, 35px);
+            background: linear-gradient(135deg, rgba(255,255,255,0.98), rgba(246,250,255,0.98));
+            padding: clamp(22px, 4vw, 38px) clamp(18px, 4vw, 42px);
             padding-right: clamp(90px, 13vw, 170px);
-            border-radius: 12px;
-            box-shadow: 0 4px 15px rgba(0,0,0,0.05);
-            border: 1px solid var(--border-color);
-            margin-bottom: 14px;
+            border-radius: 24px;
+            box-shadow: var(--shadow-md);
+            border: 1px solid rgba(220, 229, 240, 0.9);
+            margin-bottom: 8px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .wiki-header::after {
+            content: '';
+            position: absolute;
+            width: 220px;
+            height: 220px;
+            right: -90px;
+            top: -120px;
+            border-radius: 50%;
+            background: rgba(29, 120, 242, 0.08);
+            pointer-events: none;
         }
 
         .logo-area {
@@ -57,25 +83,29 @@
             height: auto;
             max-height: 95px;
             object-fit: contain;
+            filter: drop-shadow(0 8px 12px rgba(16, 35, 63, 0.10));
         }
 
         .logo-area h1 {
             color: var(--primary);
             font-size: clamp(1.15rem, 3vw, 2.2rem);
-            line-height: 1.15;
+            line-height: 1.12;
+            letter-spacing: -0.035em;
             overflow-wrap: anywhere;
             margin: 0;
             min-width: 0;
+            max-width: 850px;
             font-weight: 700;
         }
 
         .it-credit {
-            margin: 0 4px 30px;
+            margin: 0 8px 28px;
             color: var(--text-muted);
             font-size: clamp(0.68rem, 1.2vw, 0.78rem);
             font-weight: 600;
             letter-spacing: 0.04em;
             text-align: right;
+            opacity: 0.9;
         }
 
         .it-credit::before {
@@ -94,47 +124,50 @@
         }
 
         .section-title {
-            font-size: 1.5rem;
+            font-size: clamp(1.08rem, 2vw, 1.42rem);
             font-weight: 700;
             color: var(--primary);
-            background: #e2e8f0;
-            padding: 12px 20px;
-            border-radius: 8px;
+            background: linear-gradient(90deg, var(--accent-soft), rgba(232, 241, 255, 0.35));
+            padding: 15px 20px;
+            border-radius: 14px;
             margin-bottom: 20px;
+            border: 1px solid rgba(29, 120, 242, 0.10);
             border-left: 5px solid var(--accent);
+            letter-spacing: -0.02em;
         }
 
         /* Cuadrícula de Fichas tipo Wiki */
         .productos-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
-            gap: 25px;
+            grid-template-columns: repeat(auto-fill, minmax(min(100%, 320px), 1fr));
+            gap: 24px;
         }
 
         .producto-card {
-            background: #ffffff;
-            border-radius: 12px;
+            background: var(--surface);
+            border-radius: 18px;
             overflow: hidden;
-            box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+            box-shadow: var(--shadow-sm);
             border: 1px solid var(--border-color);
             display: flex;
             flex-direction: column;
-            transition: transform 0.2s ease, box-shadow 0.2s ease;
+            transition: transform 0.25s ease, box-shadow 0.25s ease, border-color 0.25s ease;
         }
 
         .producto-card:hover {
-            transform: translateY(-4px);
-            box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+            transform: translateY(-5px);
+            border-color: rgba(29, 120, 242, 0.30);
+            box-shadow: var(--shadow-md);
         }
 
         .producto-img-container {
             width: 100%;
-            height: 180px;
-            background: #f8fafc;
+            height: 190px;
+            background: linear-gradient(145deg, #f8fbff, #eef5fc);
             display: flex;
             justify-content: center;
             align-items: center;
-            border-bottom: 2px solid var(--border-color);
+            border-bottom: 1px solid var(--border-color);
             overflow: hidden;
         }
 
@@ -146,30 +179,32 @@
         }
 
         .producto-info {
-            padding: 20px;
+            padding: 22px;
             display: flex;
             flex-direction: column;
-            gap: 12px;
+            gap: 14px;
             flex-grow: 1;
         }
 
         .producto-titulo {
-            font-size: 1.3rem;
+            font-size: 1.18rem;
+            line-height: 1.25;
             font-weight: 700;
             color: var(--primary);
             margin: 0;
-            border-bottom: 2px solid #f1f5f9;
-            padding-bottom: 8px;
+            border-bottom: 1px solid var(--border-color);
+            padding-bottom: 11px;
+            letter-spacing: -0.02em;
         }
 
         .wiki-specs {
-            background: #f8fafc;
-            border: 1px solid #e2e8f0;
-            border-radius: 8px;
-            padding: 12px;
+            background: var(--surface-soft);
+            border: 1px solid #e5edf6;
+            border-radius: 12px;
+            padding: 14px;
             display: flex;
             flex-direction: column;
-            gap: 8px;
+            gap: 11px;
         }
 
         .spec-row {
@@ -180,11 +215,11 @@
 
         .spec-label {
             font-weight: 700;
-            color: var(--primary);
+            color: var(--primary-soft);
             text-transform: uppercase;
-            font-size: 0.78rem;
-            letter-spacing: 0.5px;
-            margin-bottom: 2px;
+            font-size: 0.70rem;
+            letter-spacing: 0.08em;
+            margin-bottom: 3px;
         }
 
         .spec-value {
@@ -197,12 +232,13 @@
             display: flex;
             align-items: center;
             gap: 16px;
-            background: #ffffff;
-            padding: 18px 22px;
-            border-radius: 12px;
-            box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+            background: rgba(255,255,255,0.92);
+            padding: 15px 18px;
+            border-radius: 16px;
+            box-shadow: var(--shadow-sm);
             border: 1px solid var(--border-color);
-            margin-bottom: 30px;
+            margin-bottom: 34px;
+            backdrop-filter: blur(12px);
         }
 
         .search-label {
@@ -215,19 +251,21 @@
         #product-search {
             flex: 1;
             min-width: 0;
-            border: 2px solid var(--border-color);
-            border-radius: 8px;
+            border: 1px solid var(--border-color);
+            border-radius: 11px;
             padding: 13px 16px;
             font: inherit;
-            font-size: 1.05rem;
+            font-size: 0.98rem;
             color: var(--text-main);
+            background: var(--surface-soft);
             outline: none;
-            transition: border-color 0.2s ease, box-shadow 0.2s ease;
+            transition: border-color 0.2s ease, box-shadow 0.2s ease, background 0.2s ease;
         }
 
         #product-search:focus {
             border-color: var(--accent);
-            box-shadow: 0 0 0 3px rgba(0,102,255,0.12);
+            background: var(--surface);
+            box-shadow: 0 0 0 4px rgba(29,120,242,0.12);
         }
 
         .search-count {
