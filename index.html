@@ -160,6 +160,59 @@
             box-shadow: var(--shadow-md);
         }
 
+        .nuevo-badge {
+            position: relative;
+            display: inline-flex;
+            align-self: flex-start;
+            align-items: center;
+            overflow: hidden;
+            isolation: isolate;
+            background: linear-gradient(135deg, #1d78f2, #5b21b6 55%, #1d78f2);
+            background-size: 220% 220%;
+            color: #ffffff;
+            border-radius: 999px;
+            padding: 6px 13px;
+            font-size: .75rem;
+            font-weight: 800;
+            letter-spacing: .08em;
+            text-transform: uppercase;
+            box-shadow: 0 5px 14px rgba(29, 120, 242, .28);
+            animation: nuevoBadgePulse 2.4s ease-in-out infinite, nuevoBadgeGradient 4s ease infinite;
+        }
+
+        .nuevo-badge::after {
+            content: '';
+            position: absolute;
+            z-index: -1;
+            top: -35%;
+            left: -70%;
+            width: 42%;
+            height: 170%;
+            background: linear-gradient(105deg, transparent, rgba(255,255,255,.85), transparent);
+            transform: skewX(-20deg);
+            animation: nuevoBadgeShine 2.8s ease-in-out infinite;
+        }
+
+        @keyframes nuevoBadgePulse {
+            0%, 100% { transform: scale(1); box-shadow: 0 5px 14px rgba(29, 120, 242, .28); }
+            50% { transform: scale(1.06); box-shadow: 0 8px 22px rgba(91, 33, 182, .38); }
+        }
+
+        @keyframes nuevoBadgeGradient {
+            0%, 100% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+        }
+
+        @keyframes nuevoBadgeShine {
+            0%, 35% { left: -70%; }
+            70%, 100% { left: 135%; }
+        }
+
+        @media (prefers-reduced-motion: reduce) {
+            .nuevo-badge,
+            .nuevo-badge::after { animation: none; }
+        }
+
         .producto-img-container {
             width: 100%;
             height: 190px;
@@ -445,6 +498,20 @@
         <section class="wiki-section">
             <h2 class="section-title">Sección 1: Suplementos de Administración Oral</h2>
             <div class="productos-grid">
+
+                            <!-- POTENZIA HONEY -->
+                <div class="producto-card">
+                    <div class="producto-img-container"><img src="img/potenziahoney.png" alt="POTENZIA HONEY"></div>
+                    <div class="producto-info">
+                        <span class="nuevo-badge">Nuevo</span>
+                        <h3 class="producto-titulo">POTENZIA HONEY</h3>
+                        <div class="wiki-specs">
+                            <div class="spec-row"><span class="spec-label">¿Cuáles son los beneficios?</span><span class="spec-value">Mejora del rendimiento sexual y la ereccion<br>Aumento de libido<br>Apoyo hormonal<br>Energia, rendimiento y “pump” fisico</span></div>
+                            <div class="spec-row"><span class="spec-label">Modo de consumo</span><span class="spec-value">Toma directa: Abrir el sachet o sobre por la parte superior e ingerir el contenido directamente con la boca poco a poco.<br>Disuelto en bebidas: También es común diluir el contenido del sobre en un vaso de agua tibia o mezclarlo con alguna infusión o té</span></div>
+                            <div class="spec-row"><span class="spec-label">Sugerencia</span><span class="spec-value">sugerir consumirlo por la mañana o entre 30 y 60 minutos antes de realizar la actividad física o íntima.</span></div>
+                        </div>
+                    </div>
+                </div>
 
                 <!-- MACA CAPS -->
                 <div class="producto-card">
@@ -1083,7 +1150,8 @@
                     </div>
                 </div>
 
-            </div>
+
+</div>
         </section>
 
 
