@@ -466,8 +466,148 @@
                 font-size: 0.82rem;
             }
         }
+
+
+        /* ==========================================
+           CARRUSEL DE ANUNCIOS DE CAPACITACIÓN
+           ========================================== */
+        .capacitacion-banner {
+            width: 100%;
+            margin: 0 auto 34px;
+        }
+
+        .capacitacion-slider {
+            position: relative;
+            width: 100%;
+            aspect-ratio: 16 / 5;
+            min-height: 190px;
+            max-height: 430px;
+            overflow: hidden;
+            border-radius: 22px;
+            background: #dce8f5;
+            border: 1px solid rgba(220, 229, 240, 0.95);
+            box-shadow: 0 16px 40px rgba(24, 55, 91, 0.14);
+        }
+
+        .capacitacion-slide {
+            position: absolute;
+            inset: 0;
+            opacity: 0;
+            visibility: hidden;
+            transform: scale(1.035);
+            transition: opacity 0.9s ease, transform 6.5s ease, visibility 0.9s ease;
+        }
+
+        .capacitacion-slide.active {
+            opacity: 1;
+            visibility: visible;
+            transform: scale(1);
+            z-index: 1;
+        }
+
+        .capacitacion-slide img {
+            display: block;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .capacitacion-slider::after {
+            content: '';
+            position: absolute;
+            inset: 0;
+            z-index: 2;
+            pointer-events: none;
+            background: linear-gradient(90deg, rgba(8, 24, 48, 0.18), transparent 18%, transparent 82%, rgba(8, 24, 48, 0.18));
+        }
+
+        .capacitacion-arrow {
+            position: absolute;
+            top: 50%;
+            z-index: 5;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 46px;
+            height: 46px;
+            border: 1px solid rgba(255, 255, 255, 0.58);
+            border-radius: 50%;
+            background: rgba(16, 35, 63, 0.68);
+            color: #ffffff;
+            font-size: 1.55rem;
+            line-height: 1;
+            cursor: pointer;
+            transform: translateY(-50%);
+            transition: background 0.2s ease, transform 0.2s ease, box-shadow 0.2s ease;
+        }
+
+        .capacitacion-arrow:hover {
+            background: #1d78f2;
+            box-shadow: 0 8px 20px rgba(29, 120, 242, 0.4);
+            transform: translateY(-50%) scale(1.08);
+        }
+
+        .capacitacion-arrow:focus-visible {
+            outline: 3px solid rgba(255, 255, 255, 0.9);
+            outline-offset: 3px;
+        }
+
+        .capacitacion-prev { left: 18px; }
+        .capacitacion-next { right: 18px; }
+
+        .capacitacion-dots {
+            position: absolute;
+            left: 50%;
+            bottom: 16px;
+            z-index: 5;
+            display: flex;
+            gap: 8px;
+            transform: translateX(-50%);
+        }
+
+        .capacitacion-dot {
+            width: 10px;
+            height: 10px;
+            padding: 0;
+            border: 2px solid rgba(255, 255, 255, 0.9);
+            border-radius: 50%;
+            background: rgba(16, 35, 63, 0.45);
+            cursor: pointer;
+            transition: width 0.25s ease, border-radius 0.25s ease, background 0.25s ease;
+        }
+
+        .capacitacion-dot.active {
+            width: 28px;
+            border-radius: 999px;
+            background: #ffffff;
+        }
+
+        @media (max-width: 700px) {
+            .capacitacion-banner { margin-bottom: 24px; }
+            .capacitacion-slider {
+                aspect-ratio: 4 / 3;
+                min-height: 180px;
+                border-radius: 16px;
+            }
+            .capacitacion-arrow {
+                width: 38px;
+                height: 38px;
+                font-size: 1.2rem;
+            }
+            .capacitacion-prev { left: 10px; }
+            .capacitacion-next { right: 10px; }
+            .capacitacion-dots { bottom: 11px; }
+        }
+
+        @media (prefers-reduced-motion: reduce) {
+            .capacitacion-slide {
+                transition: opacity 0.2s ease;
+                transform: none;
+            }
+            .capacitacion-slide.active { transform: none; }
+        }
+
     </style>
-    <link rel="stylesheet" href="visor/visor.css">
 </head>
 <body>
 
@@ -486,20 +626,41 @@
             <span class="theme-toggle-text">Modo oscuro</span>
         </button>
 
+
+
+        <!-- CARRUSEL DE ANUNCIOS DE CAPACITACIÓN -->
+        <section class="capacitacion-banner" aria-label="Anuncios de capacitación">
+            <div class="capacitacion-slider" id="capacitacion-slider">
+                <div class="capacitacion-slide active">
+                    <img src="img/capacitacion-1.jpg" alt="Capacitación 1">
+                </div>
+                <div class="capacitacion-slide">
+                    <img src="img/capacitacion-2.jpg" alt="Capacitación 2">
+                </div>
+                <div class="capacitacion-slide">
+                    <img src="img/capacitacion-3.jpg" alt="Capacitación 3">
+                </div>
+                <div class="capacitacion-slide">
+                    <img src="img/capacitacion-4.jpg" alt="Capacitación 4">
+                </div>
+
+                <button class="capacitacion-arrow capacitacion-prev" type="button" aria-label="Anuncio anterior">&#10094;</button>
+                <button class="capacitacion-arrow capacitacion-next" type="button" aria-label="Siguiente anuncio">&#10095;</button>
+
+                <div class="capacitacion-dots" aria-label="Seleccionar anuncio">
+                    <button class="capacitacion-dot active" type="button" aria-label="Ver anuncio 1"></button>
+                    <button class="capacitacion-dot" type="button" aria-label="Ver anuncio 2"></button>
+                    <button class="capacitacion-dot" type="button" aria-label="Ver anuncio 3"></button>
+                    <button class="capacitacion-dot" type="button" aria-label="Ver anuncio 4"></button>
+                </div>
+            </div>
+        </section>
+
+
         <div class="catalog-toolbar" role="search">
             <label class="search-label" for="product-search">Buscar producto:</label>
             <input id="product-search" type="search" placeholder="Escribe el nombre o una característica..." autocomplete="off">
             <span class="search-count" id="search-count" aria-live="polite"></span>
-        </div>
-
-        <!-- Botón del visor de capacitación -->
-        <div class="cv-visor-launch">
-            <button type="button" id="cv-visor-open" class="cv-visor-btn" aria-haspopup="dialog">
-                <span class="cv-visor-btn-icon" aria-hidden="true">
-                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="14" rx="2"/><circle cx="9" cy="10" r="1.6"/><path d="M21 15l-5-5-8 8"/><path d="M8 21h8"/></svg>
-                </span>
-                <span class="cv-visor-btn-text">Ver capacitación<small>Tratamientos más vendidos</small></span>
-            </button>
         </div>
 
 
@@ -510,7 +671,7 @@
             <h2 class="section-title">Sección 1: Suplementos de Administración Oral</h2>
             <div class="productos-grid">
 
-                <!-- POTENZIA HONEY -->
+                            <!-- POTENZIA HONEY -->
                 <div class="producto-card">
                     <div class="producto-img-container"><img src="img/potenziahoney.png" alt="POTENZIA HONEY"></div>
                     <div class="producto-info">
@@ -1237,20 +1398,6 @@
             <h2 class="section-title">Sección 3: Tópicos (Cremas, Geles y Sprays)</h2>
             <div class="productos-grid">
 
-                <!-- POTENZIA CREAM -->
-                <div class="producto-card">
-                    <div class="producto-img-container"><img src="img/potenziacream.png" alt="POTENZIA CREAM"></div>
-                    <div class="producto-info">
-                        <span class="nuevo-badge">Nuevo</span>
-                        <h3 class="producto-titulo">POTENZIA CREAM</h3>
-                        <div class="wiki-specs">
-                            <div class="spec-row"><span class="spec-label">tipo de producto</span><span class="spec-value">Crema de aplicación local con masaje.</span></div>
-                            <div class="spec-row"><span class="spec-label">beneficios clave</span><span class="spec-value">Apoya temporalmente la firmeza y el rendimiento de las erecciones; contribuye a una mayor sensación de volumen y ofrece efecto retardante.</span></div>
-                            <div class="spec-row"><span class="spec-label">modo de uso</span><span class="spec-value">Aplicar una pequeña cantidad sobre el área íntima y realizar un masaje suave hasta su absorción. Usar 1-2 veces al día de forma constante o 10-15 minutos antes del acto íntimo.</span></div>
-                        </div>
-                    </div>
-                </div>
-
                 <!-- STUD 100 -->
                 <div class="producto-card">
                     <div class="producto-img-container"><img src="img/stud100.png" alt="STUD 100"></div>
@@ -1432,7 +1579,6 @@
                 <div class="producto-card">
                     <div class="producto-img-container"><img src="img/vagtoy.png" alt="VAG TOY"></div>
                     <div class="producto-info">
-                        <span class="nuevo-badge">Nueva presentación</span>
                         <h3 class="producto-titulo">VAG TOY</h3>
                         <div class="wiki-specs">
                             <div class="spec-row"><span class="spec-label">Categoría</span><span class="spec-value">Accesorio de silicona.</span></div>
@@ -1514,6 +1660,78 @@
             updateThemeToggle();
         });
     </script>
-    <script src="visor/visor.js"></script>
+
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            const slider = document.getElementById('capacitacion-slider');
+            if (!slider) return;
+
+            const slides = Array.from(slider.querySelectorAll('.capacitacion-slide'));
+            const dots = Array.from(slider.querySelectorAll('.capacitacion-dot'));
+            const previousButton = slider.querySelector('.capacitacion-prev');
+            const nextButton = slider.querySelector('.capacitacion-next');
+            let currentIndex = 0;
+            let autoplayTimer;
+            const slideDuration = 7000;
+
+            function showSlide(index) {
+                currentIndex = (index + slides.length) % slides.length;
+                slides.forEach(function (slide, slideIndex) {
+                    slide.classList.toggle('active', slideIndex === currentIndex);
+                });
+                dots.forEach(function (dot, dotIndex) {
+                    const isActive = dotIndex === currentIndex;
+                    dot.classList.toggle('active', isActive);
+                    dot.setAttribute('aria-current', isActive ? 'true' : 'false');
+                });
+            }
+
+            function nextSlide() { showSlide(currentIndex + 1); }
+            function previousSlide() { showSlide(currentIndex - 1); }
+            function stopAutoplay() { clearInterval(autoplayTimer); }
+            function startAutoplay() {
+                stopAutoplay();
+                autoplayTimer = setInterval(nextSlide, slideDuration);
+            }
+
+            previousButton.addEventListener('click', function () {
+                previousSlide();
+                startAutoplay();
+            });
+
+            nextButton.addEventListener('click', function () {
+                nextSlide();
+                startAutoplay();
+            });
+
+            dots.forEach(function (dot, dotIndex) {
+                dot.addEventListener('click', function () {
+                    showSlide(dotIndex);
+                    startAutoplay();
+                });
+            });
+
+            slider.addEventListener('mouseenter', stopAutoplay);
+            slider.addEventListener('mouseleave', startAutoplay);
+            slider.addEventListener('focusin', stopAutoplay);
+            slider.addEventListener('focusout', startAutoplay);
+
+            slider.addEventListener('keydown', function (event) {
+                if (event.key === 'ArrowLeft') {
+                    previousSlide();
+                    startAutoplay();
+                }
+                if (event.key === 'ArrowRight') {
+                    nextSlide();
+                    startAutoplay();
+                }
+            });
+
+            showSlide(0);
+            startAutoplay();
+        });
+    </script>
+
 </body>
 </html>
