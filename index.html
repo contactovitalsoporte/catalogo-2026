@@ -467,6 +467,7 @@
             }
         }
     </style>
+    <link rel="stylesheet" href="visor/visor.css">
 </head>
 <body>
 
@@ -489,6 +490,16 @@
             <label class="search-label" for="product-search">Buscar producto:</label>
             <input id="product-search" type="search" placeholder="Escribe el nombre o una característica..." autocomplete="off">
             <span class="search-count" id="search-count" aria-live="polite"></span>
+        </div>
+
+        <!-- Botón del visor de capacitación -->
+        <div class="cv-visor-launch">
+            <button type="button" id="cv-visor-open" class="cv-visor-btn" aria-haspopup="dialog">
+                <span class="cv-visor-btn-icon" aria-hidden="true">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="14" rx="2"/><circle cx="9" cy="10" r="1.6"/><path d="M21 15l-5-5-8 8"/><path d="M8 21h8"/></svg>
+                </span>
+                <span class="cv-visor-btn-text">Ver capacitación<small>Tratamientos más vendidos</small></span>
+            </button>
         </div>
 
 
@@ -1503,5 +1514,6 @@
             updateThemeToggle();
         });
     </script>
+    <script src="visor/visor.js"></script>
 </body>
 </html>
