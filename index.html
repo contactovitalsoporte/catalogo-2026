@@ -494,14 +494,12 @@
             inset: 0;
             opacity: 0;
             visibility: hidden;
-            transform: scale(1.035);
-            transition: opacity 0.9s ease, transform 6.5s ease, visibility 0.9s ease;
+            transition: opacity 0.35s ease, visibility 0.35s ease;
         }
 
         .capacitacion-slide.active {
             opacity: 1;
             visibility: visible;
-            transform: scale(1);
             z-index: 1;
         }
 
@@ -545,7 +543,7 @@
         .capacitacion-arrow:hover {
             background: #1d78f2;
             box-shadow: 0 8px 20px rgba(29, 120, 242, 0.4);
-            transform: translateY(-50%) scale(1.08);
+            transform: translateY(-50%);
         }
 
         .capacitacion-arrow:focus-visible {
@@ -602,10 +600,8 @@
 
         @media (prefers-reduced-motion: reduce) {
             .capacitacion-slide {
-                transition: opacity 0.2s ease;
-                transform: none;
+                transition: opacity 0.15s ease;
             }
-            .capacitacion-slide.active { transform: none; }
         }
 
     </style>
@@ -1673,8 +1669,6 @@
             const previousButton = slider.querySelector('.capacitacion-prev');
             const nextButton = slider.querySelector('.capacitacion-next');
             let currentIndex = 0;
-            let autoplayTimer;
-            const slideDuration = 7000;
 
             function showSlide(index) {
                 currentIndex = (index + slides.length) % slides.length;
@@ -1690,47 +1684,22 @@
 
             function nextSlide() { showSlide(currentIndex + 1); }
             function previousSlide() { showSlide(currentIndex - 1); }
-            function stopAutoplay() { clearInterval(autoplayTimer); }
-            function startAutoplay() {
-                stopAutoplay();
-                autoplayTimer = setInterval(nextSlide, slideDuration);
-            }
 
-            previousButton.addEventListener('click', function () {
-                previousSlide();
-                startAutoplay();
-            });
-
-            nextButton.addEventListener('click', function () {
-                nextSlide();
-                startAutoplay();
-            });
+            previousButton.addEventListener('click', previousSlide);
+            nextButton.addEventListener('click', nextSlide);
 
             dots.forEach(function (dot, dotIndex) {
                 dot.addEventListener('click', function () {
                     showSlide(dotIndex);
-                    startAutoplay();
                 });
             });
 
-            slider.addEventListener('mouseenter', stopAutoplay);
-            slider.addEventListener('mouseleave', startAutoplay);
-            slider.addEventListener('focusin', stopAutoplay);
-            slider.addEventListener('focusout', startAutoplay);
-
             slider.addEventListener('keydown', function (event) {
-                if (event.key === 'ArrowLeft') {
-                    previousSlide();
-                    startAutoplay();
-                }
-                if (event.key === 'ArrowRight') {
-                    nextSlide();
-                    startAutoplay();
-                }
+                if (event.key === 'ArrowLeft') previousSlide();
+                if (event.key === 'ArrowRight') nextSlide();
             });
 
             showSlide(0);
-            startAutoplay();
         });
     </script>
 
